@@ -11,6 +11,7 @@ catkin_scripts = [
     'bin/catkin_make_isolated',
     'bin/catkin_test_results',
     'bin/catkin_topological_order',
+    'bin/catkin_make_itri',
 ]
 
 if os.name == 'nt':

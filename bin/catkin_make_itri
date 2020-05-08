@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import os,sys,glob
+def main():
+    cwd = os.getenv('PWD', os.curdir)
+    src_body = os.path.join(os.path.join(cwd,'src'),'*')
+    src_body_list = glob.glob(src_body)
+    # catkin_make pkg 
+    msg_list = []
+    for body_item in src_body_list:
+        if 'msg' in body_item:
+            os.system('catkin_make --pkg ' + os.path.split(body_item)[-1])
+    # catkin_make
+    os.system('catkin_make')
+   
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except Exception as e:
+        sys.exit(str(e))
